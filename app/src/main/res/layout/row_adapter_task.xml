@@ -1,0 +1,40 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <ImageView
+        android:id="@+id/image_task"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_baseline_announcement_24"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+
+    <TextView
+        android:id="@+id/text_view_priority"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_task"
+        android:text="Priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/text_view_date"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_priority"
+        app:layout_constraintStart_toEndOf="@+id/image_task"
+        android:text="Due Date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/text_view_description"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_date"
+        app:layout_constraintStart_toEndOf="@+id/image_task"
+        android:text="Description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+    
+</androidx.constraintlayout.widget.ConstraintLayout>
