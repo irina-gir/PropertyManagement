@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.propertymanagement.ui.taskManagement.TaskViewModel" />
+        <variable
+            name="item"
+            type="com.example.propertymanagement.models.TaskRepository" />
+    </data>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.taskManagement.AddTaskFragment">
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="15dp"
+       android:layout_marginTop="15dp">
+
+       <EditText
+           android:id="@+id/edit_text_priority"
+           android:textSize="20dp"
+           android:hint="Priority"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+       <EditText
+           android:id="@+id/edit_text_summary"
+           android:textSize="20dp"
+           android:hint="Summary"
+           app:layout_constraintTop_toBottomOf="@+id/edit_text_priority"
+           app:layout_constraintStart_toStartOf="parent"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+       <EditText
+           android:id="@+id/edit_text_description"
+           android:textSize="20dp"
+           android:hint="Description"
+           app:layout_constraintTop_toBottomOf="@+id/edit_text_summary"
+           app:layout_constraintStart_toStartOf="parent"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+       <EditText
+           android:id="@+id/edit_text_property"
+           android:textSize="20dp"
+           android:hint="Property"
+           app:layout_constraintTop_toBottomOf="@+id/edit_text_description"
+           app:layout_constraintStart_toStartOf="parent"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+       <EditText
+           android:id="@+id/edit_text_date"
+           android:textSize="20dp"
+           android:hint="Due Date"
+           app:layout_constraintTop_toBottomOf="@+id/edit_text_property"
+           app:layout_constraintStart_toStartOf="parent"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+       <EditText
+           android:id="@+id/edit_text_assign"
+           android:textSize="20dp"
+           android:hint="Assign To"
+           app:layout_constraintTop_toBottomOf="@+id/edit_text_date"
+           app:layout_constraintStart_toStartOf="parent"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+       <Button
+           android:id="@+id/button_save_task"
+           android:layout_marginTop="25dp"
+           app:layout_constraintTop_toBottomOf="@+id/edit_text_assign"
+           app:layout_constraintStart_toStartOf="parent"
+           android:text="Save"
+           android:background="@drawable/button_rounded"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+
+</layout>
