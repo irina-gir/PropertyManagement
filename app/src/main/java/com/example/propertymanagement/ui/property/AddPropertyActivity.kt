@@ -1,27 +1,19 @@
-package com.example.propertymanagement.ui.auth
+package com.example.propertymanagement.ui.property
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.propertymanagement.R
 import com.example.propertymanagement.utils.toolbar
-import kotlinx.android.synthetic.main.activity_register_page.*
 
-class RegisterPage : AppCompatActivity() {
+class AddPropertyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register_page)
+        setContentView(R.layout.activity_add_property)
 
-        this.toolbar("Register")
-
-        init()
+        this.toolbar("Add Property")
     }
 
-    private fun init() {
-        var adapterFragment = AdapterFragmentRegister(supportFragmentManager)
-        view_pager.adapter = adapterFragment
-        tab_layout.setupWithViewPager(view_pager)
-    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             android.R.id.home -> {

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.propertymanagement.ui.taskManagement.TaskViewModel" />
+
         <variable
             name="item"
             type="com.example.propertymanagement.models.TaskRepository" />
@@ -20,62 +23,98 @@
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:padding="15dp"
-       android:layout_marginTop="15dp">
+       android:padding="10dp"
+       android:layout_marginTop="10dp">
 
-       <EditText
+       <com.google.android.material.textfield.TextInputLayout
            android:id="@+id/edit_text_priority"
-           android:textSize="20dp"
            android:hint="Priority"
            app:layout_constraintTop_toTopOf="parent"
            app:layout_constraintStart_toStartOf="parent"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
+           android:layout_height="wrap_content">
 
-       <EditText
+           <com.google.android.material.textfield.TextInputEditText
+               android:text="@={viewModel.priority}"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
            android:id="@+id/edit_text_summary"
-           android:textSize="20dp"
            android:hint="Summary"
            app:layout_constraintTop_toBottomOf="@+id/edit_text_priority"
            app:layout_constraintStart_toStartOf="parent"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
+           android:layout_height="wrap_content">
 
-       <EditText
+           <com.google.android.material.textfield.TextInputEditText
+               android:text="@={viewModel.summary}"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
            android:id="@+id/edit_text_description"
-           android:textSize="20dp"
            android:hint="Description"
            app:layout_constraintTop_toBottomOf="@+id/edit_text_summary"
            app:layout_constraintStart_toStartOf="parent"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
+           android:layout_height="wrap_content">
 
-       <EditText
+           <com.google.android.material.textfield.TextInputEditText
+               android:text="@={viewModel.description}"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
            android:id="@+id/edit_text_property"
-           android:textSize="20dp"
            android:hint="Property"
            app:layout_constraintTop_toBottomOf="@+id/edit_text_description"
            app:layout_constraintStart_toStartOf="parent"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
+           android:layout_height="wrap_content">
 
-       <EditText
+           <com.google.android.material.textfield.TextInputEditText
+               android:text="@={viewModel.property}"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
            android:id="@+id/edit_text_date"
-           android:textSize="20dp"
            android:hint="Due Date"
            app:layout_constraintTop_toBottomOf="@+id/edit_text_property"
            app:layout_constraintStart_toStartOf="parent"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
+           android:layout_height="wrap_content">
 
-       <EditText
+           <com.google.android.material.textfield.TextInputEditText
+               android:text="@={viewModel.dueDate}"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
            android:id="@+id/edit_text_assign"
-           android:textSize="20dp"
            android:hint="Assign To"
            app:layout_constraintTop_toBottomOf="@+id/edit_text_date"
            app:layout_constraintStart_toStartOf="parent"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
+           android:layout_height="wrap_content">
+
+           <com.google.android.material.textfield.TextInputEditText
+               android:text="@={viewModel.assignTo}"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </com.google.android.material.textfield.TextInputLayout>
 
        <Button
            android:id="@+id/button_save_task"
@@ -83,6 +122,7 @@
            app:layout_constraintTop_toBottomOf="@+id/edit_text_assign"
            app:layout_constraintStart_toStartOf="parent"
            android:text="Save"
+           android:onClick="@{() -> viewModel.onButtonSaveClicked()}"
            android:background="@drawable/button_rounded"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"/>

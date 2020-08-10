@@ -9,18 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.taskManagement.ToDoListActivity">
+        <activity android:name=".ui.tenant.ActivityTenants"></activity>
+        <activity android:name=".ui.property.AddPropertyActivity" />
+        <activity android:name=".ui.property.ActivityProperties" />
+        <activity android:name=".ui.taskManagement.ToDoListActivity" />
+        <activity android:name=".ui.auth.LoginActivity" />
+        <activity android:name=".ui.auth.RegisterPage" />
+        <activity android:name=".ui.auth.FirstPage" />
+        <activity android:name=".ui.home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.auth.LoginActivity" />
-        <activity android:name=".ui.auth.RegisterPage" />
-        <activity android:name=".ui.auth.FirstPage">
-        </activity>
-        <activity android:name=".ui.home.MainActivity" />
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package com.example.propertymanagement.ui.taskManagement
 
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.example.propertymanagement.models.TaskRepository
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -8,31 +10,54 @@ import com.google.firebase.database.ValueEventListener
 
 class TaskTodoRepository {
 
-    lateinit var listTask: MutableList<List<TaskRepository>>
-    var list: ArrayList<TaskRepository> = ArrayList()
+    var listTaskRepository = MutableLiveData<List<TaskRepository>>()
+//    //val listTaskRepository: MutableLiveData<List<TaskRepository>?> by lazy{
+//        MutableLiveData<List<TaskRepository>?>()
+//    }
 
     var userid = "102"
     var database = FirebaseDatabase.getInstance()
     var databaseReference = database.getReference("task")
 
+
+
     fun addData(task: TaskRepository){
         databaseReference.child(userid!!).setValue(task)
     }
 
-    fun readData(): ArrayList<TaskRepository>{
+    fun getMutableLiveData(): MutableLiveData<List<TaskRepository>>{
+        readData()
+        //listTaskRepository.postValue(readData())
+        return listTaskRepository
+    }
+
+     fun readData(){
+        //var list: ArrayList<TaskRepository> = ArrayList()
+
         databaseReference.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
-
+                Log.d("abc", "error")
             }
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                var list: ArrayList<TaskRepository> = ArrayList()
                 for(data in dataSnapshot.children){
                     var task = data.getValue(TaskRepository::class.java)
                     list.add(task!!)
                 }
+                Log.d("abc", list.toString())
+                listTaskRepository.postValue(list)
             }
-
         } )
-        return list
+    }
+
+    fun deleteData(task: TaskRepository){
+        databaseReference.child(userid!!).removeValue()
+        databaseReference.child(userid!!).setValue(null)
+        //list.remove(task)
+    }
+
+    fun editData(task: TaskRepository){
+        databaseReference.child(userid!!).setValue(task)
     }
 }

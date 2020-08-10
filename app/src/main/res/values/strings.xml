@@ -4,4 +4,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="already_registered">Already have an account?</string>
     <string name="not_registered">Don\'t have an account?</string>
+
+    //text inputs
+    <string name="et_email">Enter Email</string>
+    <string name="et_pass">Enter Password</string>
+    <string name="et_email_landlord">Enter Landlord Email</string>
+
+    //property
+    <string name="tv_address">Property Address:</string>
+    <string name="tv_property_details">Property Details:</string>
+    <string name="tv_property_mortgage">Mortgage Information</string>
+
 </resources>
