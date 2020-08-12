@@ -28,6 +28,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_priority"
                 android:hint="Priority"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -43,6 +44,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_summary"
                 android:hint="Summary"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_priority"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -58,6 +60,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_description"
                 android:hint="Description"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_summary"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -73,6 +76,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_property"
                 android:hint="Property"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_description"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -88,6 +92,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_date"
                 android:hint="Due Date"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_property"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -103,6 +108,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_assign"
                 android:hint="Assign To"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_date"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"

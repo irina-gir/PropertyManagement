@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_margin="8dp"
             android:padding="15dp"
-            android:backgroundTint="#86A3C3"
+            android:backgroundTint="#81d4fa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -44,7 +44,7 @@
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:adjustViewBounds="true"
-                android:background="#86A3C3"
+                android:background="@drawable/image_rounded"
                 android:scaleType="fitXY"
                 android:src="@drawable/properties"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +52,8 @@
                 app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.086" />
+                app:layout_constraintVertical_bias="0.086"/>
+
 
 
             <TextView
@@ -72,8 +73,8 @@
                 android:layout_height="75dp"
                 android:layout_marginTop="16dp"
                 android:adjustViewBounds="true"
-                android:background="#86A3C3"
                 android:scaleType="fitXY"
+                android:background="@drawable/image_rounded"
                 android:src="@drawable/tenants"
                 app:layout_constraintEnd_toStartOf="@id/image_documents"
                 app:layout_constraintHorizontal_bias="0.495"
@@ -100,7 +101,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="24dp"
                 android:adjustViewBounds="true"
-                android:background="#86A3C3"
+                android:background="@drawable/image_rounded"
                 android:scaleType="fitXY"
                 android:src="@drawable/documents"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -113,6 +114,7 @@
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="8dp"
                 android:text="Documents"
+                android:textColor="@color/colorPrimaryText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/tv_tenants"
@@ -125,7 +127,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:adjustViewBounds="true"
-                android:background="#86A3C3"
+                android:background="@drawable/image_rounded"
                 android:scaleType="fitXY"
                 android:src="@drawable/todo"
                 app:layout_constraintStart_toStartOf="parent"
@@ -138,6 +140,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="4dp"
                 android:text="ToDo List"
+                android:textColor="@color/colorPrimaryText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_todo" />
 
@@ -148,7 +151,7 @@
                 android:layout_marginStart="52dp"
                 android:layout_marginTop="16dp"
                 android:adjustViewBounds="true"
-                android:background="#86A3C3"
+                android:background="@drawable/image_rounded"
                 android:scaleType="fitXY"
                 android:src="@drawable/transactions"
                 app:layout_constraintStart_toEndOf="@id/image_todo"
@@ -161,6 +164,7 @@
                 android:layout_marginStart="56dp"
                 android:layout_marginTop="4dp"
                 android:text="Transactions"
+                android:textColor="@color/colorPrimaryText"
                 app:layout_constraintStart_toEndOf="@id/tv_todo"
                 app:layout_constraintTop_toBottomOf="@id/image_todo" />
 
@@ -171,7 +175,7 @@
                 android:layout_marginStart="48dp"
                 android:layout_marginTop="12dp"
                 android:adjustViewBounds="true"
-                android:background="#86A3C3"
+                android:background="@drawable/image_rounded"
                 android:scaleType="fitXY"
                 android:src="@drawable/alerts"
                 app:layout_constraintStart_toEndOf="@id/image_transactions"
@@ -184,6 +188,7 @@
                 android:layout_marginStart="64dp"
                 android:layout_marginTop="4dp"
                 android:text="Alerts"
+                android:textColor="@color/colorPrimaryText"
                 app:layout_constraintStart_toEndOf="@id/tv_transactions"
                 app:layout_constraintTop_toBottomOf="@id/image_alerts" />
 

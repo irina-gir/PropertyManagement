@@ -1,3 +1,14 @@
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.propertymanagement.ui.auth.AuthViewModel"/>
+
+    </data>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,19 +19,23 @@
 
     <ImageView
         android:id="@+id/image_logo"
-        android:layout_width="match_parent"
-        android:layout_height="309dp"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
         android:src="@drawable/logo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_email"
         android:hint="Email"
-        app:endIconMode="custom"
+        android:padding="@dimen/_15sdp"
+        app:startIconDrawable="@drawable/ic_baseline_mail_outline_24"
+        style="@style/MyTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:text="@={viewModel.email}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -29,12 +44,16 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_password"
         android:hint="Password"
+        android:padding="@dimen/_15sdp"
+        app:startIconDrawable="@drawable/ic_outline_lock_24"
+        style="@style/MyTextInputLayout"
         app:endIconMode="password_toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:text="@={viewModel.password}"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -45,6 +64,7 @@
     <Button
         android:id="@+id/button_login"
         android:text="Sign in"
+        android:onClick="@{() -> viewModel.onButtonLogin()}"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_rounded"
         android:layout_width="match_parent"
@@ -60,7 +80,7 @@
 
         <TextView
             android:textColor="@color/colorPrimaryText"
-            android:textSize="15dp"
+            android:textSize="@dimen/_13ssp"
             android:text="@string/not_registered"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -76,3 +96,5 @@
     </LinearLayout>
 
 </LinearLayout>
+
+</layout>

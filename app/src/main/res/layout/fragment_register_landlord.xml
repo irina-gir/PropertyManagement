@@ -1,3 +1,14 @@
+<layout>
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.propertymanagement.ui.auth.AuthViewModel"/>
+
+    </data>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,14 +17,32 @@
     android:padding="15dp">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_text_name"
+        android:hint="Name"
+        app:startIconDrawable="@drawable/ic_outline_person_24"
+        style="@style/MyTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:text="@={viewModel.name}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_email"
         android:hint="Email"
-        app:endIconMode="custom"
+        style="@style/MyTextInputLayout"
+        app:startIconDrawable="@drawable/ic_baseline_mail_outline_24"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:text="@={viewModel.email}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -22,12 +51,15 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_password"
         android:hint="Password"
+        app:startIconDrawable="@drawable/ic_outline_lock_24"
+        style="@style/MyTextInputLayout"
         app:endIconMode="password_toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:text="@={viewModel.password}"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -37,6 +69,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/edit_text_confirm_password"
         android:hint="Confirm Password"
+        app:startIconDrawable="@drawable/ic_outline_lock_24"
+        style="@style/MyTextInputLayout"
         app:endIconMode="password_toggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -53,10 +87,12 @@
     <Button
         android:id="@+id/button_register"
         android:text="Sign Up"
+        android:onClick="@{() -> viewModel.onButtonRegisterLandlord()}"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_rounded"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
 
     <LinearLayout
         android:id="@+id/layout_registered"
@@ -83,5 +119,5 @@
 
     </LinearLayout>
 
-
 </LinearLayout>
+</layout>

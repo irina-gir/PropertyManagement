@@ -25,7 +25,7 @@ class AddTaskFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_add_task, container, false)
-        init(binding)
+        //init(binding)
         return binding.root
     }
 

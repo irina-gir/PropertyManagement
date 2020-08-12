@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.propertymanagement.ui.property.AddPropertyViewModel" />
+        
+        <variable
+            name="property"
+            type="com.example.propertymanagement.models.PropertyResponse" />
+
+    </data>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,7 +34,7 @@
             android:id="@+id/layout_property_address"
             android:layout_margin="15dp"
             android:padding="15dp"
-            android:background="#86A3C3"
+            android:background="#81d4fa"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tool_bar"
             app:layout_constraintVertical_chainStyle="spread"
@@ -40,7 +55,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/et_address"
-                app:helperText="Address of the property"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_property"
                 app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +63,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.address}"
                     android:hint="Address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -56,7 +72,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/et_city"
-                app:helperText="City of the property"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_address"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +80,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.city}"
                     android:hint="City"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -72,14 +89,15 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/et_state"
-                app:helperText="State of the property"
-                app:layout_constraintEnd_toEndOf="parent"
+                style="@style/MyTextInputLayout"
+                app:layout_constraintEnd_toStartOf="@+id/et_zipcode"
                 app:layout_constraintTop_toBottomOf="@+id/et_city"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_width="match_parent"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.state}"
                     android:hint="State"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -88,14 +106,15 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/et_zipcode"
-                app:helperText="ZipCode of the property"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_state"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_width="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_city"
+                app:layout_constraintStart_toEndOf="@id/et_state"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.zipCode}"
                     android:hint="ZipCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -104,7 +123,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/et_country"
-                app:helperText="Country of the property"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_zipcode"
                 app:layout_constraintStart_toStartOf="parent"
@@ -112,6 +131,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.country}"
                     android:hint="Country"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -127,7 +147,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_property_address"
             app:layout_constraintStart_toStartOf="parent"
-            android:background="#86A3C3"
+            android:background="#81d4fa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -145,7 +165,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/et_status"
-                app:helperText="Owned or tenants"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_property_details"
                 app:layout_constraintStart_toStartOf="parent"
@@ -202,13 +222,14 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/et_price"
-                app:helperText="Price of the property"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/checkbox_landlord"
                 app:layout_constraintStart_toEndOf="@id/tv_price"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:text="@={viewModel.price}"
                     android:hint="Enter Price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -232,6 +253,7 @@
         <Button
             android:id="@+id/button_save_property"
             android:text="Save"
+            android:onClick="@{() -> viewModel.onButtonSaveProperty()}"
             android:layout_margin="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layout_property_details"
@@ -242,3 +264,5 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
+
+</layout>

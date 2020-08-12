@@ -25,13 +25,8 @@ android {
     }
 
     buildFeatures {
-
         dataBinding true
-
-        // for view binding:
-        // viewBinding true
     }
-
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -68,5 +63,9 @@ dependencies {
 
     //cardview
     implementation "androidx.cardview:cardview:1.0.0"
+
+    //sdp
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
 
 }

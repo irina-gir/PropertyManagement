@@ -11,15 +11,9 @@ import com.google.firebase.database.ValueEventListener
 class TaskTodoRepository {
 
     var listTaskRepository = MutableLiveData<List<TaskRepository>>()
-//    //val listTaskRepository: MutableLiveData<List<TaskRepository>?> by lazy{
-//        MutableLiveData<List<TaskRepository>?>()
-//    }
-
     var userid = "102"
     var database = FirebaseDatabase.getInstance()
     var databaseReference = database.getReference("task")
-
-
 
     fun addData(task: TaskRepository){
         databaseReference.child(userid!!).setValue(task)
@@ -27,13 +21,10 @@ class TaskTodoRepository {
 
     fun getMutableLiveData(): MutableLiveData<List<TaskRepository>>{
         readData()
-        //listTaskRepository.postValue(readData())
         return listTaskRepository
     }
 
      fun readData(){
-        //var list: ArrayList<TaskRepository> = ArrayList()
-
         databaseReference.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 Log.d("abc", "error")

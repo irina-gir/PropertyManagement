@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.propertymanagement">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,13 +17,17 @@
         <activity android:name=".ui.taskManagement.ToDoListActivity" />
         <activity android:name=".ui.auth.LoginActivity" />
         <activity android:name=".ui.auth.RegisterPage" />
-        <activity android:name=".ui.auth.FirstPage" />
-        <activity android:name=".ui.home.MainActivity">
+        <activity android:name=".ui.auth.FirstPage" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.home.MainActivity">
+
         </activity>
     </application>
 

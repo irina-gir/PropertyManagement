@@ -10,9 +10,7 @@ import kotlinx.android.synthetic.main.fragment_add_task.view.*
 
 class TaskViewModel : ViewModel(){
 
-    var listTaskRepository = MutableLiveData<List<TaskRepository>>()
     private val repo = TaskTodoRepository()
-    var list: ArrayList<TaskRepository> = ArrayList()
     val priority = ObservableField<String>()
     var summary = ObservableField<String>()
     var description = ObservableField<String>()

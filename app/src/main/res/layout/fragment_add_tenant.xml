@@ -19,6 +19,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_name"
                 android:hint="Name"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -33,6 +34,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_email"
                 android:hint="Email"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_name"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -47,6 +49,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_social"
                 android:hint="Social Security"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_email"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -61,6 +64,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_phone"
                 android:hint="Phone Number"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_social"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"
@@ -75,6 +79,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/edit_text_property"
                 android:hint="Property"
+                style="@style/MyTextInputLayout"
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_phone"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_width="match_parent"

@@ -14,7 +14,7 @@
         android:id="@+id/button_login"
         android:text="Sign in"
         android:background="@drawable/button_rounded"
-        android:layout_margin="15dp"
+        android:layout_margin="@dimen/_15sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -22,7 +22,7 @@
         android:id="@+id/button_register"
         android:text="Sign Up"
         android:background="@drawable/button_rounded"
-        android:layout_margin="15dp"
+        android:layout_margin="@dimen/_15sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

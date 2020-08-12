@@ -4,8 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.propertymanagement.R
-import com.example.propertymanagement.ui.taskManagement.AddTaskFragment
-import com.example.propertymanagement.utils.toolbar
+import com.example.propertymanagement.helpers.toolbar
 import kotlinx.android.synthetic.main.activity_tenants.*
 
 class ActivityTenants : AppCompatActivity() {

@@ -5,16 +5,14 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.propertymanagement.R
 import com.example.propertymanagement.databinding.ActivityToDoListBinding
 import com.example.propertymanagement.models.TaskRepository
-import com.example.propertymanagement.utils.toolbar
+import com.example.propertymanagement.helpers.toolbar
 import kotlinx.android.synthetic.main.activity_to_do_list.*
-import kotlinx.android.synthetic.main.row_adapter_task.view.*
 
 class ToDoListActivity : AppCompatActivity() {
 
