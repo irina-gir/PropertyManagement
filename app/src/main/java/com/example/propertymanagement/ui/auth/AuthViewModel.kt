@@ -1,6 +1,7 @@
 package com.example.propertymanagement.ui.auth
 
 import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.propertymanagement.models.User
@@ -14,7 +15,21 @@ class AuthViewModel(private var authRepository: AuthRepository) : ViewModel(){
     val name = ObservableField<String>()
     val email = ObservableField<String>()
     val password = ObservableField<String>()
+    val confirmPassWord = ObservableField<String>()
     val landlordEmail = ObservableField<String>()
+
+    private val passValidate = MutableLiveData<String>()
+
+    fun getPassLiveDataObserver(): MutableLiveData<String>{
+        isPassValid()
+        return passValidate
+    }
+
+    private fun isPassValid(){
+        if (password.get().toString() == confirmPassWord.get().toString()){
+            passValidate.postValue(password.get().toString())
+        }
+    }
 
     fun onButtonRegisterLandlord(){
         val type = "landlord"

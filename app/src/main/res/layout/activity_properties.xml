@@ -29,6 +29,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_property"
             android:layout_width="match_parent"

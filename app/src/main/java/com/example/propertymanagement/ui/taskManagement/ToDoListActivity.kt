@@ -10,9 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.propertymanagement.R
 import com.example.propertymanagement.databinding.ActivityToDoListBinding
+import com.example.propertymanagement.helpers.hide
+import com.example.propertymanagement.helpers.show
 import com.example.propertymanagement.models.TaskRepository
 import com.example.propertymanagement.helpers.toolbar
 import kotlinx.android.synthetic.main.activity_to_do_list.*
+import kotlinx.android.synthetic.main.activity_to_do_list.view.*
 
 class ToDoListActivity : AppCompatActivity() {
 
@@ -30,14 +33,15 @@ class ToDoListActivity : AppCompatActivity() {
 
         this.toolbar("ToDo List")
 
-        init()
+        init(binding.root)
 
     }
 
-    private fun init() {
+    private fun init(root: View) {
+        progress_bar.show()
 
         initList()
-        button_add_task.setOnClickListener {
+        root.button_add_task.setOnClickListener {
             recycler_view_task.visibility = View.GONE
             val fragment = AddTaskFragment()
             var transaction = supportFragmentManager.beginTransaction()
@@ -65,6 +69,8 @@ class ToDoListActivity : AppCompatActivity() {
                 taskList = it as ArrayList<TaskRepository>
                 adapterRepoTask.setData(taskList)
                 adapterRepoTask.notifyDataSetChanged()
+                progress_bar.hide()
+                recycler_view_task.visibility = View.VISIBLE
             }
         })
     }

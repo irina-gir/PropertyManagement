@@ -23,6 +23,17 @@ class AuthRepository(private var endPoint: EndPoint) {
         MutableLiveData<LoginResponse>()
     }
 
+//    private val passValidate: MutableLiveData<String> by lazy {
+//        MutableLiveData<String>()
+//    }
+//
+//    fun isPassValid(pass1: String, pass2: String): MutableLiveData<String>{
+//        if (pass1 == pass2){
+//            passValidate.postValue(pass1)
+//        }
+//        return passValidate
+//    }
+
     fun postRegisterLandlordResponse(user: User) {
         endPoint.postRegisterLandlordUser(user).enqueue(object: Callback<RegisterResponse>{
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {

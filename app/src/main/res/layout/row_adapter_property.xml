@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="property"
+            type="com.example.propertymanagement.models.Property" />
+
+        <variable
+            name="adapter"
+            type="com.example.propertymanagement.ui.property.AdapterAddProperty" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:elevation="5dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <ImageView
+                    android:id="@+id/image_property"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    loadImage="@{property.image}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_address1"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="@{property.address}"
+                    app:layout_constraintStart_toEndOf="@+id/image_property"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_address2"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="@{property.city + ','+' ' + property.state}"
+                    app:layout_constraintStart_toEndOf="@id/image_property"
+                    app:layout_constraintTop_toBottomOf="@id/tv_address1" />
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="wrap_content"
+                    android:text="@{'$' +property.purchasePrice}"
+                    app:layout_constraintStart_toEndOf="@id/image_property"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_address2" />
+
+                <ImageButton
+                    android:id="@+id/button_edit_property"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_35sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="#fff"
+                    android:src="@drawable/ic_baseline_create_24"
+                    app:layout_constraintStart_toEndOf="@+id/tv_address2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/button_delete_property"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_35sdp"
+                    android:background="#fff"
+                    android:src="@drawable/ic_outline_delete_forever_24"
+                    app:layout_constraintStart_toEndOf="@id/tv_address2"
+                    app:layout_constraintTop_toBottomOf="@id/button_edit_property" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

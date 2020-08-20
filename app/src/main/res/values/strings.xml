@@ -15,4 +15,7 @@
     <string name="tv_property_details">Property Details:</string>
     <string name="tv_property_mortgage">Mortgage Information</string>
 
+    //home
+    <string name="app_motto">We have a home for you!!!</string>
+
 </resources>

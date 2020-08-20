@@ -11,10 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.propertymanagement.R
 import com.example.propertymanagement.api.ApiClient
 import com.example.propertymanagement.databinding.ActivityLoginBinding
-import com.example.propertymanagement.helpers.SessionManager
-import com.example.propertymanagement.helpers.toast
+import com.example.propertymanagement.helpers.*
 import com.example.propertymanagement.ui.home.MainActivity
-import com.example.propertymanagement.helpers.toolbar
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -40,12 +38,13 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun init() {
         layout_login.setOnClickListener(this)
-        //button_login.setOnClickListener(this)
+        progress_bar.hide()
     }
 
     private fun observerData() {
         viewModelAuth.getLoginRepositoryObserver().observe(this, Observer {
             if(it != null){
+                progress_bar.show()
                 startActivity(Intent(this, MainActivity::class.java))
                 this.toast("Logged in")
             }else{

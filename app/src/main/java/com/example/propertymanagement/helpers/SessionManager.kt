@@ -23,8 +23,6 @@ object SessionManager{
         editor= sharedPreferences.edit()
     }
 
-    //var editor: SharedPreferences.Editor = sharedPreferences.edit()
-
     fun saveUser(user: User, token: String){
         editor.putString(KEY_NAME, user.name)
         editor.putString(KEY_USER_ID, user._id)

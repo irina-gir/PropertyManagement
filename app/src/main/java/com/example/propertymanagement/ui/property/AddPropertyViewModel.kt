@@ -4,12 +4,15 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.propertymanagement.helpers.SessionManager
+import com.example.propertymanagement.models.Property
 import com.example.propertymanagement.models.PropertyResponse
 import java.lang.IllegalArgumentException
 
 class AddPropertyViewModel(private var propertyRepository: AddPropertyRepository ): ViewModel() {
 
     fun getAddPropertyRepObserver() = propertyRepository.repoAddProperty
+
+    fun getPropertiesRepObserver() = propertyRepository.getPropertyLiveData()
 
     val address = ObservableField<String>()
     val city = ObservableField<String>()
@@ -18,14 +21,15 @@ class AddPropertyViewModel(private var propertyRepository: AddPropertyRepository
     val country = ObservableField<String>()
     val price = ObservableField<String>()
 
-    fun onButtonSaveProperty(){
+    fun onButtonSaveProperty(location: String){
         var userId = SessionManager.getUserId()
-        var property = PropertyResponse(address = address.get().toString()
+        var property = Property(address = address.get().toString()
             , city = city.get().toString(),
             state = state.get().toString(),
         country = country.get().toString(),
         purchasePrice = price.get().toString(),
-        userId = userId)
+        userId = userId!!,
+        image = location)
         propertyRepository.postProperty(property)
     }
 

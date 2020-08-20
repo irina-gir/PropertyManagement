@@ -11,12 +11,12 @@ import com.google.firebase.database.ValueEventListener
 class TaskTodoRepository {
 
     var listTaskRepository = MutableLiveData<List<TaskRepository>>()
-    var userid = "102"
     var database = FirebaseDatabase.getInstance()
     var databaseReference = database.getReference("task")
 
     fun addData(task: TaskRepository){
-        databaseReference.child(userid!!).setValue(task)
+        //task.summary = databaseReference.push().key
+        databaseReference.child(task.summary!!).setValue(task)
     }
 
     fun getMutableLiveData(): MutableLiveData<List<TaskRepository>>{
@@ -36,19 +36,18 @@ class TaskTodoRepository {
                     var task = data.getValue(TaskRepository::class.java)
                     list.add(task!!)
                 }
-                Log.d("abc", list.toString())
                 listTaskRepository.postValue(list)
             }
         } )
     }
 
     fun deleteData(task: TaskRepository){
-        databaseReference.child(userid!!).removeValue()
-        databaseReference.child(userid!!).setValue(null)
-        //list.remove(task)
+        databaseReference.child(task.summary!!).removeValue()
+        databaseReference.child(task.summary!!).setValue(null)
     }
 
-    fun editData(task: TaskRepository){
-        databaseReference.child(userid!!).setValue(task)
+    fun editData(newTask: TaskRepository){
+        databaseReference.child(newTask.summary!!).setValue(newTask)
+        Log.d("edit", newTask.toString() )
     }
 }

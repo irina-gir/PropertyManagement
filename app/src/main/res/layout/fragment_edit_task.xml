@@ -127,7 +127,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/edit_text_assign"
                 app:layout_constraintStart_toStartOf="parent"
                 android:text="Save"
-                android:onClick="@{() -> viewModel.onButtonEditSaveClicked()}"
                 android:background="@drawable/button_rounded"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

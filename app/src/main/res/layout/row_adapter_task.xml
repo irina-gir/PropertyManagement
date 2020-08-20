@@ -18,7 +18,6 @@
             type="com.example.propertymanagement.ui.taskManagement.TaskViewModel" />
     </data>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:layout_width="match_parent"
@@ -41,8 +40,8 @@
 
                 <TextView
                     android:id="@+id/text_view_priority"
-                    android:layout_width="263dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
                     android:text="@{item.priority}"
                     app:layout_constraintEnd_toStartOf="@+id/button_edit_task"
                     app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +49,8 @@
 
                 <TextView
                     android:id="@+id/text_view_date"
-                    android:layout_width="263dp"
-                    android:layout_height="37dp"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
                     android:text="@{item.dueDate}"
                     app:layout_constraintEnd_toStartOf="@+id/button_edit_task"
                     app:layout_constraintStart_toStartOf="parent"
@@ -59,8 +58,8 @@
 
                 <TextView
                     android:id="@+id/text_view_summary"
-                    android:layout_width="262dp"
-                    android:layout_height="37dp"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
                     android:text="@{item.summary}"
                     app:layout_constraintEnd_toStartOf="@+id/button_delete_task"
                     app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +82,7 @@
                     android:layout_marginTop="8dp"
                     android:background="#fff"
                     android:onClick="@{()-> adapter.onButtonDeleteClicked(item)}"
-                    android:src="@drawable/ic_baseline_delete_forever_24"
+                    android:src="@drawable/ic_outline_delete_forever_24"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/text_view_summary"
                     app:layout_constraintTop_toBottomOf="@+id/button_edit_task" />

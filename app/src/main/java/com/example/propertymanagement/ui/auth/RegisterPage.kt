@@ -33,7 +33,6 @@ class RegisterPage : AppCompatActivity() {
 
         this.toolbar("Register")
 
-        observerData()
         init()
     }
 
@@ -41,6 +40,7 @@ class RegisterPage : AppCompatActivity() {
         var adapterFragment = AdapterFragmentRegister(supportFragmentManager)
         view_pager.adapter = adapterFragment
         tab_layout.setupWithViewPager(view_pager)
+        observerData()
     }
 
     private fun observerData() {
@@ -53,6 +53,12 @@ class RegisterPage : AppCompatActivity() {
             }
             else{
                 this.toast("Something went wrong...")
+            }
+        })
+
+        viewModelAuth.getPassLiveDataObserver().observe(this, Observer {
+            if(it == null){
+                toast("Password does not match...")
             }
         })
     }
