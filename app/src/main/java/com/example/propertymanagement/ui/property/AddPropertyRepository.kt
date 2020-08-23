@@ -8,54 +8,33 @@ import com.example.propertymanagement.models.Property
 import com.example.propertymanagement.models.PropertyResponse
 import com.example.propertymanagement.models.RegisterResponse
 import com.example.propertymanagement.models.TaskRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class AddPropertyRepository(private var endPoint: EndPoint) {
 
-    private var listProperty= ArrayList<Property>()
-
-    val repoAddProperty: MutableLiveData<Response<Property>> by lazy{
-        MutableLiveData<Response<Property>>()
+    suspend fun postProperty(property: Property): Response<Property>? {
+        return withContext(Dispatchers.IO){
+            val call = endPoint.postProperty(property)
+            val response = call.execute()
+            if(response != null && response.code() in 200 ..399){
+                response
+            }else
+                null
+        }
     }
 
-    var repoGetProperties = MutableLiveData<List<Property>>()
-    fun getPropertyLiveData(): MutableLiveData<List<Property>>{
-        getProperties()
-        return repoGetProperties
-    }
-
-    fun postProperty(property: Property){
-        endPoint.postProperty(property).enqueue(object :Callback<Property>{
-            override fun onFailure(call: Call<Property>, t: Throwable) {
-                Log.d("post", t.message.toString())
-                repoAddProperty.postValue(null)
+    suspend fun getProperties(): List<Property>?{
+        return withContext(Dispatchers.IO){
+            try {
+                val result = endPoint.getProperties()
+                result.data
+            }catch (cause: Throwable){
+                throw Throwable("Unable to get Properties", cause)
             }
-
-            override fun onResponse(call: Call<Property>, response: Response<Property>) {
-                repoAddProperty.postValue(response)
-            }
-
-        })
-    }
-
-    private fun getProperties(){
-        endPoint.getProperties().enqueue(object: Callback<PropertyResponse>{
-            override fun onFailure(call: Call<PropertyResponse>, t: Throwable) {
-                Log.d("get", t.message.toString())
-            }
-            override fun onResponse(
-                call: Call<PropertyResponse>,
-                response: Response<PropertyResponse>
-            ) {
-                for(property in response.body()!!.data){
-                    if(property.userId == SessionManager.getUserId()){
-                        listProperty.add(property)
-                        repoGetProperties.postValue(listProperty)
-                    }
-                }
-            }
-        })
+        }
     }
 }

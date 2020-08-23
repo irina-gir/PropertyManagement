@@ -41,7 +41,7 @@ interface EndPoint{
     fun postImageProperty(@Part body: MultipartBody.Part) : Call<UploadResponse>
 
     @GET("property")
-    fun getProperties() : Call<PropertyResponse>
+    suspend fun getProperties() : PropertyResponse
 
     //tenant
     @POST("tenant")
