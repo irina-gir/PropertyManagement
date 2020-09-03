@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.propertymanagement.R
 import com.example.propertymanagement.api.ApiClient
+import com.example.propertymanagement.base.BaseApplication
 import com.example.propertymanagement.databinding.ActivityRegisterPageBinding
 import com.example.propertymanagement.helpers.SessionManager
 import com.example.propertymanagement.helpers.toast
@@ -16,18 +17,25 @@ import com.example.propertymanagement.helpers.toolbar
 import com.example.propertymanagement.ui.home.MainActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_register_page.*
+import javax.inject.Inject
 
 class RegisterPage : AppCompatActivity() {
 
     private lateinit var viewModelAuth: AuthViewModel
     private lateinit var binding: ActivityRegisterPageBinding
 
+    @Inject
+    lateinit var authRepository: AuthRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_register_page)
 
+        var baseApplication = application as BaseApplication
+        baseApplication.getAppComponent().inject(this)
+
         viewModelAuth = ViewModelProvider(this,
-            AuthViewModelFactory(AuthRepository(ApiClient.getApiEndPoint())))
+            AuthViewModelFactory(authRepository))
             .get(AuthViewModel::class.java)
         binding.viewModel = viewModelAuth
 

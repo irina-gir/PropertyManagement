@@ -20,8 +20,8 @@ class ActivityTenants : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tenants)
 
-        tenantViewModel = ViewModelProvider(this, TenantViewModelFactory(TenantRepository(ApiClient.getApiEndPoint())))
-            .get(TenantViewModel::class.java)
+//        tenantViewModel = ViewModelProvider(this, TenantViewModelFactory(TenantRepository(ApiClient.getApiEndPoint())))
+//            .get(TenantViewModel::class.java)
         binding.viewModel = tenantViewModel
 
         this.toolbar("Tenants")

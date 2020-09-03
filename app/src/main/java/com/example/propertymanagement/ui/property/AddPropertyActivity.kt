@@ -58,9 +58,9 @@ class AddPropertyActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_property)
 
-        propertyViewModel = ViewModelProvider(this,
-            AddPropertyViewModelFactory(AddPropertyRepository(ApiClient.getApiEndPoint())))
-            .get(AddPropertyViewModel::class.java)
+//        propertyViewModel = ViewModelProvider(this,
+//            AddPropertyViewModelFactory(AddPropertyRepository(ApiClient.getApiEndPoint())))
+//            .get(AddPropertyViewModel::class.java)
 
         binding.viewModel = propertyViewModel
         SessionManager.init(this)
@@ -190,26 +190,26 @@ class AddPropertyActivity : AppCompatActivity(), View.OnClickListener {
     //using retrofit upload image
     fun uploadImage(path: String){
         var file = File(path)
-        var apiService = ApiClient.getApiEndPoint()
+        //var apiService = ApiClient.getApiEndPoint()
 
         var requestFile = RequestBody.create(MediaType.parse("image/jpeg"), file)
         var body = MultipartBody.Part.createFormData("image", file.name, requestFile)
 
-        var call = apiService.postImageProperty(body)
-        call.enqueue(object: Callback<UploadResponse>{
-            override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
-                toast(t.message.toString())
-            }
-
-            override fun onResponse(
-                call: Call<UploadResponse>,
-                response: Response<UploadResponse>
-            ) {
-                var uploadResponse = response.body()?.data
-                location = uploadResponse?.location!!
-                toast("Uploaded")
-            }
-        })
+        //var call = apiService.postImageProperty(body)
+//        call.enqueue(object: Callback<UploadResponse>{
+//            override fun onFailure(call: Call<UploadResponse>, t: Throwable) {
+//                toast(t.message.toString())
+//            }
+//
+//            override fun onResponse(
+//                call: Call<UploadResponse>,
+//                response: Response<UploadResponse>
+//            ) {
+//                var uploadResponse = response.body()?.data
+//                location = uploadResponse?.location!!
+//                toast("Uploaded")
+//            }
+//        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

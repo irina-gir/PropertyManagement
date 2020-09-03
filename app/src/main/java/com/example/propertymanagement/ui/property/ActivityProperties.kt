@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.propertymanagement.R
 import com.example.propertymanagement.api.ApiClient
+import com.example.propertymanagement.base.BaseApplication
 import com.example.propertymanagement.databinding.ActivityPropertiesBinding
 import com.example.propertymanagement.helpers.*
 import com.example.propertymanagement.models.Property
@@ -18,6 +19,7 @@ import com.example.propertymanagement.models.PropertyResponse
 
 import kotlinx.android.synthetic.main.activity_properties.*
 import kotlinx.android.synthetic.main.activity_properties.view.*
+import javax.inject.Inject
 
 class ActivityProperties : AppCompatActivity(), View.OnClickListener {
 
@@ -26,11 +28,19 @@ class ActivityProperties : AppCompatActivity(), View.OnClickListener {
     private lateinit var adapterProperty: AdapterAddProperty
     private var propertyList = ArrayList<Property>()
 
+    @Inject
+    lateinit var addPropertyRepository: AddPropertyRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_properties)
+
+        //Dagger will inject your instance variable those who have @inject annotations
+        val baseApplication = application as BaseApplication
+        baseApplication.getAppComponent().inject(this)
+
         propertyViewModel = ViewModelProvider(this,
-        AddPropertyViewModelFactory(AddPropertyRepository(ApiClient.getApiEndPoint())))
+        AddPropertyViewModelFactory(addPropertyRepository))
             .get(AddPropertyViewModel::class.java)
 
         binding.viewModel = propertyViewModel

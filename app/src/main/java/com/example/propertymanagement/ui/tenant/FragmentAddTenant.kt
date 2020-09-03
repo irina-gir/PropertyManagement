@@ -38,8 +38,8 @@ class FragmentAddTenant : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        tenantViewModel = ViewModelProvider(this, TenantViewModelFactory(TenantRepository(ApiClient.getApiEndPoint())))
-            .get(TenantViewModel::class.java)
+//        tenantViewModel = ViewModelProvider(this, TenantViewModelFactory(TenantRepository(ApiClient.getApiEndPoint())))
+//            .get(TenantViewModel::class.java)
         binding.viewModel = tenantViewModel
 
         tenantViewModel.getPostTenantObserver().observe(viewLifecycleOwner, Observer {

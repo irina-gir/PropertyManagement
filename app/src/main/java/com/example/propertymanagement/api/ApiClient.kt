@@ -8,17 +8,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 object ApiClient {
-    private const val BASE_URL = "https://apolis-property-management.herokuapp.com/api/"
+    const val BASE_URL = "https://apolis-property-management.herokuapp.com/api/"
 
-    private val endPoint:EndPoint by lazy {
-        val client = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        client.create(EndPoint::class.java)
-    }
-    fun getApiEndPoint(): EndPoint = endPoint
+//    private val endPoint:EndPoint by lazy {
+//        val client = Retrofit.Builder()
+//            .baseUrl(BASE_URL)
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        client.create(EndPoint::class.java)
+//    }
+//    fun getApiEndPoint(): EndPoint = endPoint
 }
 
 interface EndPoint{

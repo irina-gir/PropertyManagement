@@ -10,22 +10,30 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.propertymanagement.R
 import com.example.propertymanagement.api.ApiClient
+import com.example.propertymanagement.base.BaseApplication
 import com.example.propertymanagement.databinding.ActivityLoginBinding
 import com.example.propertymanagement.helpers.*
 import com.example.propertymanagement.ui.home.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var viewModelAuth: AuthViewModel
     private lateinit var binding: ActivityLoginBinding
 
+    @Inject
+    lateinit var authRepository: AuthRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
+        var baseApplication = application as BaseApplication
+        baseApplication.getAppComponent().inject(this)
+
         viewModelAuth = ViewModelProvider(this,
-            AuthViewModelFactory(AuthRepository(ApiClient.getApiEndPoint())))
+            AuthViewModelFactory(authRepository))
             .get(AuthViewModel::class.java)
         binding.viewModel = viewModelAuth
 
